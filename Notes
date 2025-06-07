@@ -1,13 +1,78 @@
 1. Technology 
-
-          TS 
-          Nest js 
-          Postgres sql 
-          TypeORM
-          Node js 
-
-
+    TS 
+    Nest js 
+    Postgres sql 
+    TypeORM
+    Node js 
 
 2. What we will implementing?
 -demo: https://demo.realworld.io/#/
 -api spec : 
+
+3. Work of Dist folder ?
+ In a NestJS project, the dist/ folder contains the compiled JavaScript code and files that are generated from your TypeScript source code.
+
+4. Module ?
+Module (@Module)
+✅ What it is:
+The organizational unit in NestJS.
+Groups related controllers, providers, and other modules.
+📌 Key Points:
++ Every app has at least one module: AppModule.
++ Use imports, controllers, providers, and exports inside a module.
+
+5. Controller ?
+✅ What it is:
+Handles incoming HTTP requests and returns responses.
+Defines routes like GET, POST, PUT, DELETE.
+📌 Key Points:
+Decorated with @Controller('route')
+Uses decorators like @Get(), @Post(), etc.
+Delegates business logic to services/providers.
+
+6. Services ?
+✅ What it is:
+A service or helper class that holds business logic or reusable logic.
+Can be injected into controllers or other services.
+📌 Key Points:
+Decorated with @Injectable()
+Registered in the providers array of a module.
+Can be a class, a value, or a factory.
+
+# BUild tag module 
+# Created Tag Services
+
+
+Explaination of the comand 
+    
+"start": "IS_TS_NODE=true ts-node -r tsconfig-paths/register -r ts-node/register dist/main",
+
+IS_TS_NODE=true
+This sets an environment variable.
+
+if (process.env.IS_TS_NODE === 'true') {
+  // Do something only in ts-node mode
+}
+
+ts-node
+This is a tool that runs TypeScript files without compiling them into .js first.
+Think of it like node, but for .ts files.
+
+-r tsconfig-paths/register
+-r means "require this module before running".
+
+tsconfig-paths 
+allows support for path aliases (like @app/, @module/) defined in tsconfig.json.
+For example, this in tsconfig.json:
+"paths": {
+  "@user/*": ["src/user/*"]
+}
+will work correctly when this register is used.
+
+
+2:17:00 part :1
+
+# Configure absolute path and the start script 
+user module-alias package for supporting absolute path for 
+
+
