@@ -73,6 +73,75 @@ will work correctly when this register is used.
 2:17:00 part :1
 
 # Configure absolute path and the start script 
-user module-alias package for supporting absolute path for 
+user module-alias package for supporting absolute path for the script file , 
+connfigure path in tsconfig.json file for supporting the absolute path .
+
+
+
+# postgres setup
+why potgres ? a relational db? not document based db.
+ans:- mongodb doesnot support schema by default . although relation between the document can be built in mongo , but it will  neewd some effort but with postgres , it is very easy to built relations b/w table .
+
+commands :- 
+- `sudo -U postgres psql`: login to postgres
+- `\l`: list all database 
+- `\c <db_name>` connect to database
+- `\dt`: list all table in db
+- `CREATE DATABASE <DBNAME>` : create db
+- `\du`: list all user
+- `login` `psql -U postgres -d mydb`
+- `\q`: quit
+
+
+# DB configuration in nest js
+using type ORM
+
+# CReate tag entity 
+In TypeORM (used with NestJS), an Entity is a class that maps to a database table. Each instance of the class represents a row in the table, and each property represents a column.
+
+Entity = Table
+Entity property = Table column
+Entity instance = Table row
+
+TypeOrmModule.forFeature([Entity]):
+Registers repositories for the specified entities.
+Makes them available for dependency injection via @InjectRepository(Entity) in services.
+It’s used only in feature modules (not in AppModule).
+
+The @InjectRepository(Entity) decorator in NestJS with TypeORM is used to inject a repository for a specific entity into your service or provider class.
+
+# 🧠 What Is a Repository?
+In TypeORM, a repository is an object that handles the logic to interact with the database for a specific entity (table).
+It provides methods like:
+.find()
+.findOne()
+.save()
+.delete()
+.update()
+...and more.
+
+✅ What @InjectRepository(Entity) Does
+It tells NestJS to:
+Locate the repository associated with the specified Entity.
+Inject it into your service class so you can use it to perform DB operations.
+
+
+# setting up migration 
+- add "db:drop" script in package.json using typeorm cli 
+- run `npm run db:drop` to drop table 
+- add `db:create src//migration/tags` to generate migration : here "src/migration/tags" is the path where migration file will generate  and tags are the name of migration file that can be anything 
+- add `db:migrate` to run migration 
+- to check if the migration are run successfully , check the table in db 
+    - run `\dt` to list all table 
+    - run `\d` to describe the tag table
+    - run `select * from tag;` to see the data in the tag table 
+    - run `select * from migrations` to see migration histroy 
+
+
+
+# Note alway commit the migration file to git 
+# in dev or prod mode , you can always clone the repoU
+
+
 
 
