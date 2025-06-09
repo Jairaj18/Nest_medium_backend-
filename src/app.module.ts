@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { TagModule } from './tag/tag.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { DataSource } from 'typeorm';
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
@@ -19,8 +20,9 @@ import { DataSource } from 'typeorm';
       // This is necessary for TypeORM to find the entities in both development and production environments
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       //synchronize: true, // This not used in production
-      synchronize: false,
+      synchronize: true,
     }),
+    UserModule,
   ],
   controllers: [AppController],
   providers: [AppService],

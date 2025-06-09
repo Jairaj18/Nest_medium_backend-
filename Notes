@@ -140,7 +140,19 @@ Inject it into your service class so you can use it to perform DB operations.
 
 
 # Note alway commit the migration file to git 
-# in dev or prod mode , you can always clone the repoU
+# in dev or prod mode , you can always clone the repo
+
+
+
+
+# Genereted whole user module / service / controller by command
+
+# What is DTO ? 
+A DTO is a TypeScript class or interface that defines the shape of the data sent to or from the server. It helps:
+Validate incoming data
+Enforce typing (ensures you get what you expect)
+Keep controllers clean
+Document expected payloads for APIs (especially useful with Swagger)
 
 
 

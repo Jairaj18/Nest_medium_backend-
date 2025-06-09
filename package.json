@@ -20,14 +20,14 @@
     "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js -d src/ormdatasource.ts",
     "db:drop": "npm run typeorm -- schema:drop",
     "db:create": "npm run typeorm -- migration:generate",
-    
-
+    "db:migrate": "npm run typeorm -- migration:run"
   },
   "dependencies": {
     "@nestjs/common": "^11.0.1",
     "@nestjs/core": "^11.0.1",
     "@nestjs/platform-express": "^11.0.1",
     "@nestjs/typeorm": "^11.0.0",
+    "bcrypt": "^6.0.0",
     "module-alias": "^2.2.3",
     "nodemon": "^3.1.10",
     "pg": "^8.16.0",
